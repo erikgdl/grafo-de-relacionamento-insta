@@ -29,7 +29,6 @@ CSRFTOKEN_VALUE = os.getenv("CSRFTOKEN_VALUE")
 s.cookies.set("sessionid", SESSIONID_VALUE)
 s.cookies.set("csrftoken", CSRFTOKEN_VALUE)
 
-
 # --- Coleta de Dados ---
 
 def get_user_data(username):

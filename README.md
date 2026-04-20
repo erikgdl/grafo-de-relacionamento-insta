@@ -87,7 +87,7 @@ matplotlib
 4.  **Interaja:**
 
       * O script vai pedir o `@` do perfil que você quer analisar.
-      * Ex: `erikyff_`
+      * Ex: `ccompsaolucas`
       * Aguarde. O processo pode levar vários minutos, dependendo do número de seguidores.
 
 -----
@@ -122,3 +122,28 @@ Este script depende de *cookies* de sessão (`sessionid`) que **expiram**\!
 Se o script parar de funcionar e mostrar erros como **`Erro 401`** (Unauthorized) ou **`Erro 429`** (Too Many Requests), é 99% provável que seu `sessionid` expirou.
 
 **Para corrigir:** Simplesmente faça logout e login no Instagram pelo navegador, pegue os **novos** cookies e atualize as variáveis no script.
+
+## ✨ Atualização / Novidades
+
+Criar duas pastas para organização na hora de fazer a planilha dos relacionamento do perfil, é também das imagens que mostra o grafo dos relacionamentos.
+
+O instagram está mais rigorosos agora pra fazer requisições, para ele não bloquear logo, tente fazer menos ou diminui a velocidade das requisições na função `process_follower`.
+
+```txt
+# Mude de:
+time.sleep(0.3)
+
+# Para (esperar de 2 a 3 segundos):
+time.sleep(3)
+```
+
+e o número de trabalhadores paralelos na função `main()`:
+
+```txt
+# Mude de:
+MAX_WORKERS = 5
+
+# Para:
+MAX_WORKERS = 1
+```
+Assim pode diminui o risco do Instagram aplica um bloqueio que dura de 15 minutos a algumas horas (às vezes 24h).....
