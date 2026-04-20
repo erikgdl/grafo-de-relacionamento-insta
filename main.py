@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 # --- Configurações ---
 load_dotenv()
-QUERY_HASH_FOLLOWERS = os.getenv("QUERY2_HASH_FOLLOWERS")
+QUERY_HASH_FOLLOWERS = os.getenv("QUERY_HASH_FOLLOWERS")
 QUERY_HASH_FOLLOWING = os.getenv("QUERY_HASH_FOLLOWING")
 
 HEADERS = {
@@ -273,11 +273,12 @@ def draw_detailed_graph(target, followers_list, following_list):
     plt.title(f"Grafo Detalhado de Relacionamentos de @{target}", fontsize=18)
     plt.axis('off') 
     
-    # 8. Salva a imagem
-    graph_filename = f"{target}_detailed_graph.png"
+# 8. Salva a imagem na pasta 'img'
+    os.makedirs("img", exist_ok=True)  # Garante que a pasta existe
+    graph_filename = os.path.join("img", f"{target}_detailed_graph.png")
+    
     plt.savefig(graph_filename)
     print(f"✅ Grafo salvo como {graph_filename}")
-    # plt.show() # Descomente se quiser que ele abra a imagem
 
 
 def process_follower(follower_data):
@@ -332,7 +333,8 @@ def process_follower(follower_data):
 
 def main():
     target_profile = input("Qual o @ do perfil que você quer analisar? (ex: hyd_events) ")
-    output_file = f"{target_profile}_instagram_data.xlsx"
+    os.makedirs("doc", exist_ok=True)
+    output_file = os.path.join("doc", f"{target_profile}_instagram_data.xlsx")
     MAX_WORKERS = 5
 
     print(f"Alvo: {target_profile} | Buscando TODOS os seguidores e seguindo.")
