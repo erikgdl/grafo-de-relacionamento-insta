@@ -127,6 +127,15 @@ Se o script parar de funcionar e mostrar erros como **`Erro 401`** (Unauthorized
 
 Criar duas pastas para organização na hora de fazer a planilha dos relacionamento do perfil, é também das imagens que mostra o grafo dos relacionamentos.
 
+Os últimos `QUERY_HASH_FOLLOWERS` e `QUERY_HASH_FOLLOWING` que estão funcionando:
+
+```txt
+
+QUERY_HASH_FOLLOWERS = "c76146de99bb02f6415203be841dd25a"
+QUERY_HASH_FOLLOWING = "d04b0a864b4b54837c0d870b0e77e076"
+
+```
+
 O instagram está mais rigorosos agora pra fazer requisições, para ele não bloquear logo, tente fazer menos ou diminui a velocidade das requisições na função `process_follower`.
 
 ```txt
