@@ -7,10 +7,14 @@ import concurrent.futures
 import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import os
+from dotenv import load_dotenv
 
 # --- Configurações ---
-QUERY_HASH_FOLLOWERS = "c76146de99bb02f6415203be841dd25a"
-QUERY_HASH_FOLLOWING = "d04b0a864b4b54837c0d870b0e77e076"
+load_dotenv()
+QUERY_HASH_FOLLOWERS = os.getenv("QUERY2_HASH_FOLLOWERS")
+QUERY_HASH_FOLLOWING = os.getenv("QUERY_HASH_FOLLOWING")
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "X-IG-App-ID": "936619743392459"
@@ -19,8 +23,8 @@ HEADERS = {
 # --- Sessão do Requests (Autenticação) ---
 s = requests.Session()
 
-SESSIONID_VALUE = "16502786969%3ADPZEICNCuCJIu7%3A1%3AAYjktmk1-JQbplHGo2sh0MKCFmIRdzWcmA8Tf7tDMg"
-CSRFTOKEN_VALUE = "LBCIAoy3mLw1HjS9H0H3AYDdZ9GtE2pr" 
+SESSIONID_VALUE = os.getenv("SESSIONID_VALUE")
+CSRFTOKEN_VALUE = os.getenv("CSRFTOKEN_VALUE")
 
 s.cookies.set("sessionid", SESSIONID_VALUE)
 s.cookies.set("csrftoken", CSRFTOKEN_VALUE)
